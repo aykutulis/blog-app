@@ -19,6 +19,8 @@ const blogReducer = (state = blogState, action) => {
           return blog;
         }
       });
+    case 'GET_BLOGS':
+      return action.blogs;
     default:
       return state;
   }
