@@ -4,10 +4,12 @@ const blogReducer = (state = blogState, action) => {
   switch (action.type) {
     case 'ADD_BLOG':
       return [...state, action.blog];
+
     case 'REMOVE_BLOG':
       return state.filter(({ id }) => {
         return id !== action.id;
       });
+
     case 'EDIT_BLOG':
       return state.map((blog) => {
         if (blog.id === action.id) {
@@ -19,8 +21,13 @@ const blogReducer = (state = blogState, action) => {
           return blog;
         }
       });
+
     case 'GET_BLOGS':
       return action.blogs;
+
+    case 'CLEAR_BLOGS':
+      return [];
+
     default:
       return state;
   }

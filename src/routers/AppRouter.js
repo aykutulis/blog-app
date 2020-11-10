@@ -1,30 +1,31 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "../components/Header";
-import HomePage from "../components/HomePage";
-import BlogListPage from "../components/BlogListPage";
-import BlogDetailsPage from "../components/BlogDetailsPage";
-import ContactPage from "../components/ContactPage";
-import NotFoundPage from "../components/NotFoundPage";
-import AddBlogPage from "../components/AddBlogPage";
-import EditBlogPage from "../components/EditBlogPage";
+import React from 'react';
+import { Route, Router, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+import LoginPage from '../components/LoginPage';
+import BlogListPage from '../components/BlogListPage';
+import BlogDetailsPage from '../components/BlogDetailsPage';
+import NotFoundPage from '../components/NotFoundPage';
+import AddBlogPage from '../components/AddBlogPage';
+import EditBlogPage from '../components/EditBlogPage';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
+export const history = createHistory();
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
-        <Header />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/blogs" component={BlogListPage} />
-          <Route path="/create" component={AddBlogPage} />
-          <Route path="/edit/:id" component={EditBlogPage} />
-          <Route path="/blogs/:id" component={BlogDetailsPage} />
-          <Route path="/contact" component={ContactPage} />
+          <PublicRoute exact path='/' component={LoginPage} />
+          <PrivateRoute exact path='/blogs' component={BlogListPage} />
+          <PrivateRoute path='/create' component={AddBlogPage} />
+          <PrivateRoute path='/edit/:id' component={EditBlogPage} />
+          <PrivateRoute path='/blogs/:id' component={BlogDetailsPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

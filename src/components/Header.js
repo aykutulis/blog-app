@@ -1,22 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { logout } from '../actions/auth';
 
 const Header = () => {
   return (
     <header>
       <h1>Blog App</h1>
-      <NavLink exact to="/" activeClassName="active">
-        Home
-      </NavLink>
-      <NavLink to="/blogs" activeClassName="active">
+      <NavLink to='/blogs' activeClassName='active'>
         Blogs
       </NavLink>
-      <NavLink to="/create" activeClassName="active">
+      <NavLink to='/create' activeClassName='active'>
         Create
       </NavLink>
-      <NavLink to="/contact" activeClassName="active">
-        Contact
-      </NavLink>
+      <button onClick={logout}>Logout</button>
     </header>
   );
 };
