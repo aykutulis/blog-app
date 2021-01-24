@@ -3,13 +3,13 @@ import 'firebase/database';
 import 'firebase/auth';
 
 var firebaseConfig = {
-  apiKey: 'AIzaSyBURTAXm_EN-3sIYW77KUVCOvtO80qnR4E',
-  authDomain: 'react-blog-app-c51df.firebaseapp.com',
-  databaseURL: 'https://react-blog-app-c51df.firebaseio.com',
-  projectId: 'react-blog-app-c51df',
-  storageBucket: 'react-blog-app-c51df.appspot.com',
-  messagingSenderId: '412160962006',
-  appId: '1:412160962006:web:999206d96949f6190dc877',
+  //apiKey: 
+  //authDomain: 
+  //databaseURL:
+  //projectId: 
+  //storageBucket: 
+  //messagingSenderId: 
+  //appId: 
 };
 
 // Initialize Firebase
